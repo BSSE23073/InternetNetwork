@@ -73,20 +73,20 @@ const Contact = () => {
   return (
     <Layout>
       {/* Hero */}
-      <section className="hero-gradient text-primary-foreground py-16 md:py-24 overflow-hidden relative">
-        <div className="absolute inset-0">
-          <div className="absolute top-1/4 -right-20 w-80 h-80 bg-white/10 rounded-full blur-3xl" />
-          <div className="absolute bottom-1/4 -left-20 w-80 h-80 bg-white/5 rounded-full blur-3xl" />
+      <section className="hero-gradient text-primary-foreground py-12 md:py-24 overflow-hidden relative">
+        <div className="absolute inset-0 overflow-hidden">
+          <div className="absolute top-1/4 -right-20 w-40 md:w-80 h-40 md:h-80 bg-white/10 rounded-full blur-3xl" />
+          <div className="absolute bottom-1/4 -left-20 w-40 md:w-80 h-40 md:h-80 bg-white/5 rounded-full blur-3xl" />
         </div>
-        <div className="container relative">
+        <div className="container px-4 md:px-6 relative">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
             className="text-center max-w-3xl mx-auto"
           >
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-4">Contact Us</h1>
-            <p className="text-lg md:text-xl text-primary-foreground/90">
+            <h1 className="text-3xl md:text-5xl lg:text-6xl font-bold mb-4">Contact Us</h1>
+            <p className="text-base md:text-xl text-primary-foreground/90 px-2">
               Have questions? We're here to help. Reach out and let's get you connected.
             </p>
           </motion.div>
@@ -94,9 +94,9 @@ const Contact = () => {
       </section>
 
       {/* Contact Section */}
-      <section className="py-16 md:py-24">
-        <div className="container">
-          <div className="grid lg:grid-cols-2 gap-12 items-start">
+      <section className="py-12 md:py-24">
+        <div className="container px-4 md:px-6">
+          <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-start">
             {/* Contact Form */}
             <motion.div
               initial={{ opacity: 0, x: -30 }}
@@ -113,8 +113,8 @@ const Contact = () => {
                   </CardDescription>
                 </CardHeader>
                 <CardContent>
-                  <form onSubmit={handleSubmit} className="space-y-5">
-                    <div className="grid sm:grid-cols-2 gap-4">
+                  <form onSubmit={handleSubmit} className="space-y-4 md:space-y-5">
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                       <div className="space-y-2">
                         <Label htmlFor="name">Full Name *</Label>
                         <Input
@@ -124,7 +124,7 @@ const Contact = () => {
                           value={formData.name}
                           onChange={handleChange}
                           required
-                          className="h-12"
+                          className="h-11 md:h-12 text-sm md:text-base"
                         />
                       </div>
                       <div className="space-y-2">
@@ -137,11 +137,11 @@ const Contact = () => {
                           value={formData.email}
                           onChange={handleChange}
                           required
-                          className="h-12"
+                          className="h-11 md:h-12 text-sm md:text-base"
                         />
                       </div>
                     </div>
-                    <div className="grid sm:grid-cols-2 gap-4">
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                       <div className="space-y-2">
                         <Label htmlFor="phone">Phone Number</Label>
                         <Input
@@ -151,7 +151,7 @@ const Contact = () => {
                           placeholder="(555) 123-4567"
                           value={formData.phone}
                           onChange={handleChange}
-                          className="h-12"
+                          className="h-11 md:h-12 text-sm md:text-base"
                         />
                       </div>
                       <div className="space-y-2">
@@ -162,7 +162,7 @@ const Contact = () => {
                           placeholder="123 Main St, City, State"
                           value={formData.address}
                           onChange={handleChange}
-                          className="h-12"
+                          className="h-11 md:h-12 text-sm md:text-base"
                         />
                       </div>
                     </div>
@@ -256,20 +256,20 @@ const Contact = () => {
                         <div className="flex items-start gap-4 p-6">
                           <motion.div 
                             whileHover={{ scale: 1.1, rotate: 5 }}
-                            className={`h-14 w-14 rounded-2xl bg-gradient-to-br ${item.gradient} flex items-center justify-center flex-shrink-0 shadow-lg`}
+                            className={`h-12 w-12 md:h-14 md:w-14 rounded-xl md:rounded-2xl bg-gradient-to-br ${item.gradient} flex items-center justify-center flex-shrink-0 shadow-lg`}
                           >
-                            <item.icon className="h-7 w-7 text-white" />
+                            <item.icon className="h-6 w-6 md:h-7 md:w-7 text-white" />
                           </motion.div>
-                          <div>
-                            <h3 className="font-semibold text-lg mb-1">{item.title}</h3>
+                          <div className="min-w-0 flex-1">
+                            <h3 className="font-semibold text-base md:text-lg mb-1">{item.title}</h3>
                             {item.href ? (
-                              <a href={item.href} className="text-xl font-bold text-gradient hover:opacity-80 transition-opacity">
+                              <a href={item.href} className="text-lg md:text-xl font-bold text-gradient hover:opacity-80 transition-opacity break-all">
                                 {item.value}
                               </a>
                             ) : (
-                              <p className="text-xl font-bold">{item.value}</p>
+                              <p className="text-lg md:text-xl font-bold">{item.value}</p>
                             )}
-                            <p className="text-sm text-muted-foreground mt-1">
+                            <p className="text-xs md:text-sm text-muted-foreground mt-1">
                               {item.sub}
                             </p>
                           </div>
@@ -286,16 +286,16 @@ const Contact = () => {
                 whileInView={{ opacity: 1, scale: 1 }}
                 viewport={{ once: true }}
                 transition={{ delay: 0.4 }}
-                className="p-6 rounded-2xl bg-gradient-to-br from-primary/10 to-accent/10 border border-primary/20"
+                className="p-4 md:p-6 rounded-xl md:rounded-2xl bg-gradient-to-br from-primary/10 to-accent/10 border border-primary/20"
               >
-                <h3 className="font-bold text-lg mb-2">Need Help Right Away?</h3>
-                <p className="text-muted-foreground mb-4">
+                <h3 className="font-bold text-base md:text-lg mb-2">Need Help Right Away?</h3>
+                <p className="text-sm md:text-base text-muted-foreground mb-4">
                   Skip the form and speak directly with our team.
                 </p>
-                <Button asChild size="lg" className="gap-2 bg-gradient-to-r from-primary to-accent hover:opacity-90">
+                <Button asChild size="lg" className="gap-2 bg-gradient-to-r from-primary to-accent hover:opacity-90 w-full sm:w-auto">
                   <a href={PHONE_LINK}>
                     <Phone className="h-5 w-5" />
-                    Call {PHONE_NUMBER}
+                    <span className="truncate">Call {PHONE_NUMBER}</span>
                   </a>
                 </Button>
               </motion.div>
