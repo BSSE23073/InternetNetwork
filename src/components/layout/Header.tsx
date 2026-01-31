@@ -1,10 +1,11 @@
 import { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
-import { Menu, X, Phone, Wifi } from "lucide-react";
+import { Menu, X, Phone } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { ThemeToggle } from "@/components/ThemeToggle";
 import { cn } from "@/lib/utils";
 import { motion, AnimatePresence } from "framer-motion";
+import logo from "@/assets/logo.png";
 
 const navLinks = [
   { href: "/", label: "Home" },
@@ -31,16 +32,13 @@ export function Header() {
     >
       <div className="container flex h-16 items-center justify-between">
         {/* Logo */}
-        <Link to="/" className="flex items-center gap-2 group">
-          <motion.div 
-            whileHover={{ scale: 1.05, rotate: 5 }}
-            className="flex h-10 w-10 items-center justify-center rounded-lg bg-gradient-to-br from-primary to-accent"
-          >
-            <Wifi className="h-6 w-6 text-primary-foreground" />
-          </motion.div>
-          <span className="text-xl font-bold text-foreground group-hover:text-gradient transition-all">
-            Internet Network
-          </span>
+        <Link to="/" className="flex items-center group">
+          <motion.img 
+            src={logo}
+            alt="Internet Network"
+            whileHover={{ scale: 1.02 }}
+            className="h-10 w-auto"
+          />
         </Link>
 
         {/* Desktop Navigation */}
@@ -70,7 +68,7 @@ export function Header() {
         {/* Desktop Actions */}
         <div className="hidden lg:flex items-center gap-3">
           <ThemeToggle />
-          <Button asChild size="lg" className="gap-2 bg-gradient-to-r from-primary to-accent hover:opacity-90 transition-opacity">
+          <Button asChild size="lg" className="gap-2 bg-primary hover:bg-primary/90 text-white">
             <a href={PHONE_LINK}>
               <Phone className="h-4 w-4" />
               {PHONE_NUMBER}
@@ -132,7 +130,7 @@ export function Header() {
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ delay: navLinks.length * 0.05 }}
               >
-                <Button asChild size="lg" className="w-full gap-2 mt-2 bg-gradient-to-r from-primary to-accent">
+                <Button asChild size="lg" className="w-full gap-2 mt-2 bg-primary hover:bg-primary/90 text-white">
                   <a href={PHONE_LINK}>
                     <Phone className="h-4 w-4" />
                     {PHONE_NUMBER}

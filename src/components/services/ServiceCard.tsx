@@ -86,7 +86,7 @@ export function ServiceCard({ name, price, description, features, popular, detai
             )}
           </AnimatePresence>
 
-          {features.length > 4 && (
+          {(details && details.length > 0) && (
             <button
               onClick={() => setIsExpanded(!isExpanded)}
               className="flex items-center gap-1 text-sm text-primary hover:text-primary/80 transition-colors w-full justify-center pt-2"
@@ -103,13 +103,13 @@ export function ServiceCard({ name, price, description, features, popular, detai
 
           {/* Action Buttons */}
           <div className="flex flex-col gap-2 pt-4">
-            <Button asChild className="w-full gap-2 bg-gradient-to-r from-primary to-accent hover:opacity-90">
+            <Button asChild className="w-full gap-2 bg-primary hover:bg-primary/90 text-white">
               <a href={PHONE_LINK}>
                 <Phone className="h-4 w-4" />
                 Call Now
               </a>
             </Button>
-            <Button asChild variant="outline" className="w-full gap-2">
+            <Button asChild variant="outline" className="w-full gap-2 border-primary text-primary hover:bg-primary hover:text-white">
               <Link to="/contact?source=availability">
                 <FileText className="h-4 w-4" />
                 Check Availability

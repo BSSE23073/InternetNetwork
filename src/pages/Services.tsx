@@ -369,7 +369,7 @@ const Services = () => {
       </section>
 
       {/* CTA */}
-      <section className="py-16 md:py-20 hero-gradient text-primary-foreground">
+      <section className="py-16 md:py-20 bg-primary text-white">
         <div className="container">
           <motion.div
             initial={{ opacity: 0, scale: 0.95 }}
@@ -378,7 +378,7 @@ const Services = () => {
             className="text-center"
           >
             <h2 className="text-3xl md:text-4xl font-bold mb-4">Not Sure Which Plan is Right for You?</h2>
-            <p className="text-lg mb-8 text-primary-foreground/90 max-w-2xl mx-auto">
+            <p className="text-lg mb-8 text-white/90 max-w-2xl mx-auto">
               Call our experts and we'll help you find the perfect solution for your needs and budget.
             </p>
             <Button asChild size="lg" className="gap-2 bg-white text-primary hover:bg-white/90 shadow-lg">
