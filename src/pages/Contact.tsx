@@ -11,10 +11,10 @@ import { useSearchParams } from "react-router-dom";
 import { motion } from "framer-motion";
 import { supabase } from "@/integrations/supabase/client";
 
-const PHONE_NUMBER = "(515) 305-4012";
+const PHONE_NUMBER = "1(515)-305-4012";
 const PHONE_LINK = "tel:+15153054012";
 const EMAIL = "support@internetnetwork.com";
-const ADDRESS = "Des Moines, IA";
+const ADDRESS = "3708 Merle Hay Rd, Des Moines, IA 50310";
 
 const Contact = () => {
   const { toast } = useToast();

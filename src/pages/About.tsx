@@ -3,7 +3,7 @@ import { Phone, Mail, MapPin, Users, Target, Award } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 
-const PHONE_NUMBER = "+1(515)-305-4012";
+const PHONE_NUMBER = "1(515)-305-4012";
 const PHONE_LINK = "tel:+15153054012";
 const EMAIL = "support@internetnetwork.com";
 const ADDRESS = "3708 Merle Hay Rd, Des Moines, IA 50310";
@@ -125,7 +125,7 @@ const About = () => {
               <CardContent className="pt-6 text-center">
                 <Mail className="h-8 w-8 text-primary mx-auto mb-3" />
                 <h3 className="font-semibold mb-1">Email</h3>
-                <a href={`mailto:${EMAIL}`} className="text-primary hover:underline">
+                <a href={`mailto:${EMAIL}`} className="text-primary hover:underline break-all">
                   {EMAIL}
                 </a>
               </CardContent>
