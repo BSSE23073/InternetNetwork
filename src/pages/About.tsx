@@ -76,7 +76,7 @@ const About = () => {
       </section>
 
       {/* Stats */}
-      <section className="py-12 -mt-12 relative z-10">
+      <section className="py-12 relative z-10">
         <div className="container">
           <motion.div
             variants={containerVariants}
