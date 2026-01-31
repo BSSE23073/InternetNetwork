@@ -1,6 +1,7 @@
 import { Phone, Shield, Clock, Users, CheckCircle, Sparkles } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
+import heroImage from "@/assets/hero-home.jpg";
 
 const PHONE_NUMBER = "(515) 305-4012";
 const PHONE_LINK = "tel:+15153054012";
@@ -31,6 +32,15 @@ const itemVariants = {
 export function HeroSection() {
   return (
     <section className="relative hero-gradient text-primary-foreground py-20 md:py-28 lg:py-36 overflow-hidden">
+      {/* Background Image */}
+      <div className="absolute inset-0">
+        <img 
+          src={heroImage} 
+          alt="Smart home connectivity" 
+          className="w-full h-full object-cover opacity-20"
+        />
+        <div className="absolute inset-0 bg-gradient-to-b from-primary/80 via-primary/60 to-primary/80" />
+      </div>
       {/* Background Effects */}
       <div className="absolute inset-0 overflow-hidden">
         <div className="absolute -top-1/2 -right-1/4 w-96 h-96 bg-white/10 rounded-full blur-3xl" />

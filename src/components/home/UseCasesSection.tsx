@@ -1,6 +1,9 @@
 import { Home, Briefcase, Smartphone, ArrowRight } from "lucide-react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { motion } from "framer-motion";
+import streamingFamily from "@/assets/streaming-family.jpg";
+import wifiRouter from "@/assets/wifi-router.jpg";
+import supportTeam from "@/assets/support-team.jpg";
 
 const sections = [
   {
@@ -9,6 +12,7 @@ const sections = [
     description: "Whether you're a family of streamers, remote workers, or casual browsers, we have plans that fit your lifestyle. Enjoy uninterrupted entertainment, smooth video calls, and fast downloads.",
     features: ["Multiple device support", "Whole-home WiFi coverage", "Parental controls available"],
     gradient: "from-primary to-accent",
+    image: streamingFamily,
   },
   {
     icon: Briefcase,
@@ -16,6 +20,7 @@ const sections = [
     description: "Keep your business running smoothly with enterprise-grade internet solutions. From small offices to large operations, we have the bandwidth to support your growth.",
     features: ["Dedicated business lines", "Priority customer support", "Scalable bandwidth options"],
     gradient: "from-accent to-secondary",
+    image: supportTeam,
   },
   {
     icon: Smartphone,
@@ -23,6 +28,7 @@ const sections = [
     description: "Connect all your smart devices seamlessly. From smart thermostats to security cameras, our reliable network keeps your smart home running without a hitch.",
     features: ["IoT device optimization", "Low latency connections", "Future-proof technology"],
     gradient: "from-secondary to-primary",
+    image: wifiRouter,
   },
 ];
 
@@ -68,10 +74,19 @@ export function UseCasesSection() {
             <motion.div key={section.title} variants={itemVariants}>
               <Card className="bg-card border-0 shadow-xl h-full card-hover group overflow-hidden relative">
                 <div className={`absolute inset-x-0 top-0 h-1 bg-gradient-to-r ${section.gradient}`} />
-                <CardHeader className="pb-4">
+                {/* Image */}
+                <div className="relative h-48 overflow-hidden">
+                  <img 
+                    src={section.image} 
+                    alt={section.title}
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                  />
+                  <div className={`absolute inset-0 bg-gradient-to-t from-card via-transparent to-transparent`} />
+                </div>
+                <CardHeader className="pb-4 pt-4">
                   <motion.div 
                     whileHover={{ scale: 1.1, rotate: 5 }}
-                    className={`h-14 w-14 rounded-2xl bg-gradient-to-br ${section.gradient} flex items-center justify-center mb-4 shadow-lg`}
+                    className={`h-14 w-14 rounded-2xl bg-gradient-to-br ${section.gradient} flex items-center justify-center mb-4 shadow-lg -mt-12 relative z-10 border-4 border-card`}
                   >
                     <section.icon className="h-7 w-7 text-white" />
                   </motion.div>
