@@ -97,7 +97,7 @@ export function HeroSection() {
               asChild 
               size="lg" 
               variant="outline"
-              className="text-lg gap-2 px-8 py-7 border-primary-foreground text-primary-foreground hover:bg-primary-foreground/10 transition-all"
+              className="text-lg gap-2 px-8 py-7 bg-white/10 border-white text-white hover:bg-white/20 transition-all"
             >
               <Link to="/services">
                 <FileText className="h-5 w-5" />
