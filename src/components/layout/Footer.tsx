@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import { Phone, Mail, MapPin } from "lucide-react";
-import logo from "@/assets/logo.png";
+import logo from "@/assets/logo-footer.png";
 
 const PHONE_NUMBER = "1(515)-305-4012";
 const PHONE_LINK = "tel:+15153054012";
