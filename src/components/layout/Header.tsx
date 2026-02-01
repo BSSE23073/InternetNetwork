@@ -4,7 +4,7 @@ import { Menu, X, Phone } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 import { motion, AnimatePresence } from "framer-motion";
-import logo from "@/assets/logo-header.png";
+import logo from "@/assets/logo-header.jpg";
 
 const navLinks = [
   { href: "/", label: "Home" },
@@ -36,7 +36,7 @@ export function Header() {
             src={logo}
             alt="Internet Network"
             whileHover={{ scale: 1.02 }}
-            className="h-10 w-auto"
+            className="h-12 w-auto"
           />
         </Link>
 
