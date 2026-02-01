@@ -1,59 +1,83 @@
 import { Layout } from "@/components/layout/Layout";
 import { motion } from "framer-motion";
-import { FileText, Users, Shield, AlertTriangle, RefreshCw, Phone, Scale, Handshake } from "lucide-react";
+import { FileText } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
-
-const PHONE_NUMBER = "1(515)-305-4012";
-const EMAIL = "support@internetnetwork.com";
 
 const termsContent = [
   {
     id: "acceptance",
-    icon: Handshake,
-    title: "Acceptance of Terms",
-    content: "By accessing and using the Internet Network website, you accept and agree to be bound by the terms and conditions of this agreement. If you do not agree with any part of these terms, please do not use our services."
+    title: "1. Acceptance of Terms",
+    content: `By accessing or using Internet Network ("Website," "we," "us," or "our") available at www.internetnetwork.us, you acknowledge that you have read, understood, and agree to be bound by these Terms and Conditions and our Privacy Policy. If you do not agree, you must discontinue use of this Website.`
   },
   {
-    id: "description",
-    icon: FileText,
-    title: "Description of Service",
-    content: "Internet Network is an independent marketing partner that helps consumers find internet and television service providers. We do not directly provide internet or TV services. All services are provided by third-party providers who maintain their own terms and conditions."
+    id: "company",
+    title: "2. Company Information",
+    content: `Business Name: Internet Network\n\nWebsite: https://www.internetnetwork.us\n\nBusiness Address: 3708 Merle Hay Rd Des Moines, IA 50310`
   },
   {
-    id: "responsibilities",
-    icon: Users,
-    title: "User Responsibilities",
-    content: "You agree to provide accurate and complete information when using our services. You are responsible for maintaining the confidentiality of any account information and for all activities that occur under your account."
+    id: "services",
+    title: "3. Nature of Services",
+    content: `Internet Network operates as an independent service guidance and coordination platform. We assist customers by helping them explore available internet, cable TV, and related service plans based on their ZIP code and preferences.\n\nOur services include:\n\n• Allowing customers to review and compare available plans\n• Collecting customer information after plan selection\n• Coordinating with third-party service providers to schedule installation appointments\n\nInternet Network does not provide internet, cable, or telecommunications services directly. All services are delivered solely by third-party providers.`
   },
   {
     id: "third-party",
-    icon: Shield,
-    title: "Third-Party Services",
-    content: "We connect you with third-party service providers. Your use of their services is subject to their respective terms and conditions. Internet Network is not responsible for the services, content, or practices of these third parties."
+    title: "4. Third-Party Providers",
+    content: `All services displayed on this Website are offered by independent third-party service providers. Internet Network is not the owner, operator, or direct provider of any service.\n\nFinal decisions regarding service availability, installation, pricing, and performance are made exclusively by the respective service providers.`
   },
   {
-    id: "warranties",
-    icon: AlertTriangle,
-    title: "No Warranties",
-    content: "Our services are provided \"as is\" without warranties of any kind, either express or implied. We do not guarantee the availability, accuracy, or reliability of any third-party services or information provided on our website."
+    id: "availability",
+    title: "5. Service Availability",
+    content: `Service availability depends on customer location, ZIP code, provider coverage, and technical feasibility. Internet Network does not guarantee service availability in all areas.`
+  },
+  {
+    id: "fees",
+    title: "6. Fees and Charges",
+    content: `Internet Network charges a one-time service fee and/or setup fee for service guidance and installation scheduling coordination.\n\nThese fees:\n\n• Are separate from provider charges\n• Do not represent monthly service costs\n• Are charged solely for coordination and assistance services\n\nAll applicable fees are disclosed before customer confirmation.`
+  },
+  {
+    id: "billing",
+    title: "7. Provider Relationship & Billing",
+    content: `Internet Network does not handle provider billing, monthly charges, service accounts, or ongoing customer support after installation scheduling.\n\nAll billing, service delivery, maintenance, and support are handled directly by the selected service provider.`
+  },
+  {
+    id: "cancellations",
+    title: "8. Cancellations and Refunds",
+    content: `Refund eligibility depends on whether coordination work or scheduling has already been performed. Service and setup fees may be non-refundable once provider coordination has begun.`
+  },
+  {
+    id: "responsibilities",
+    title: "9. User Responsibilities",
+    content: `Customers agree to provide accurate and complete information to ensure successful coordination with service providers. Customers are responsible for confirming final service details with the provider.`
+  },
+  {
+    id: "intellectual",
+    title: "10. Intellectual Property",
+    content: `All Website content, including text, layout, graphics, and branding, is the property of Internet Network and may not be used without written permission.`
   },
   {
     id: "liability",
-    icon: Scale,
-    title: "Limitation of Liability",
-    content: "Internet Network shall not be liable for any indirect, incidental, special, or consequential damages arising from your use of our services or any third-party services. Our total liability shall not exceed the amount paid by you, if any, for using our services."
+    title: "11. Limitation of Liability",
+    content: `Internet Network is not responsible for:\n\n• Provider installation delays or cancellations\n• Service quality, speeds, or outages\n• Provider pricing or policy changes\n\nOur liability is limited to the amount paid for our service fee, to the maximum extent permitted by law.`
   },
   {
-    id: "changes",
-    icon: RefreshCw,
-    title: "Changes to Terms",
-    content: "We reserve the right to modify these terms at any time without prior notice. Continued use of our services after changes constitutes acceptance of the new terms. We encourage you to review these terms periodically."
+    id: "indemnification",
+    title: "12. Indemnification",
+    content: `You agree to indemnify and hold harmless Internet Network from any claims arising from misuse of the Website or violation of these Terms.`
+  },
+  {
+    id: "modifications",
+    title: "13. Modifications",
+    content: `Internet Network reserves the right to update these Terms at any time. Continued use of the Website constitutes acceptance of revised Terms.`
+  },
+  {
+    id: "governing",
+    title: "14. Governing Law",
+    content: `These Terms & Conditions shall be governed by the laws of the State of New York, United States.`
   },
   {
     id: "contact",
-    icon: Phone,
-    title: "Contact Information",
-    content: `For questions about these Terms & Conditions, please contact us at ${PHONE_NUMBER} or ${EMAIL}. We are committed to addressing your concerns promptly.`
+    title: "15. Contact Information",
+    content: `For questions regarding these Terms & Conditions, please contact us through the contact details available on our Website.`
   },
 ];
 
@@ -88,7 +112,7 @@ const Terms = () => {
             <p className="text-lg text-primary-foreground/80">
               Please read these terms carefully before using our services
             </p>
-            <p className="text-sm text-primary-foreground/60 mt-4">Last updated: January 2026</p>
+            <p className="text-sm text-primary-foreground/60 mt-4">Effective Date: January 2026</p>
           </motion.div>
         </div>
       </section>
@@ -101,23 +125,16 @@ const Terms = () => {
             animate="visible"
             className="space-y-6"
           >
-            {termsContent.map((item, index) => (
+            {termsContent.map((item) => (
               <motion.div key={item.id} variants={itemVariants}>
                 <Card className="border-0 shadow-lg hover:shadow-xl transition-shadow duration-300">
                   <CardContent className="p-6 md:p-8">
-                    <div className="flex items-start gap-4">
-                      <div className="flex items-center justify-center w-12 h-12 rounded-xl bg-primary/10 text-primary shrink-0">
-                        <item.icon className="h-6 w-6" />
-                      </div>
-                      <div className="flex-1">
-                        <h3 className="text-lg md:text-xl font-semibold mb-3 text-foreground">
-                          {index + 1}. {item.title}
-                        </h3>
-                        <p className="text-muted-foreground leading-relaxed">
-                          {item.content}
-                        </p>
-                      </div>
-                    </div>
+                    <h3 className="text-lg md:text-xl font-semibold mb-3 text-foreground">
+                      {item.title}
+                    </h3>
+                    <p className="text-muted-foreground leading-relaxed whitespace-pre-line">
+                      {item.content}
+                    </p>
                   </CardContent>
                 </Card>
               </motion.div>

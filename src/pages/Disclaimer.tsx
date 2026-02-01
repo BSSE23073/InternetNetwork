@@ -1,47 +1,28 @@
 import { Layout } from "@/components/layout/Layout";
 import { motion } from "framer-motion";
-import { AlertTriangle, Building2, MapPin, DollarSign, ShieldX, Users, Phone } from "lucide-react";
+import { AlertTriangle } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
-
-const PHONE_NUMBER = "1(515)-305-4012";
-const EMAIL = "support@internetnetwork.com";
 
 const disclaimerContent = [
   {
-    id: "partner",
-    icon: Building2,
-    title: "Independent Marketing Partner",
-    content: "Internet Network operates as an independent marketing partner. We are not directly affiliated with, employed by, or agents of any specific internet, cable, or television service provider. Our role is to help connect consumers with suitable providers."
+    id: "notice",
+    title: "1. Important Notice",
+    content: `Please read this Disclaimer carefully before using Internet Network. By accessing or using this Website, you acknowledge that you have read, understood, and agree to be bound by this Disclaimer. If you do not agree, please discontinue use of the Website.`
   },
   {
-    id: "availability",
-    icon: MapPin,
-    title: "Service Availability",
-    content: "Service availability, pricing, and features vary by location and are subject to change without notice. The information provided on this website is for general informational purposes only and may not reflect current offerings in your specific area."
+    id: "partner",
+    title: "2. Independent Marketing Partner",
+    content: `Internet Network is owned and operated by Internetnetwork.us, an independent service guidance and coordination platform. We are not the official website, owner, or service provider of any internet, cable, or telecommunications company.`
   },
   {
     id: "pricing",
-    icon: DollarSign,
-    title: "Pricing Information",
-    content: "Prices shown are approximate and may vary based on geographic location, current promotions and offers, equipment selections, and additional fees, taxes, and surcharges. Contact us for accurate pricing information for your specific address."
+    title: "3. Pricing Disclaimer",
+    content: `Any prices, estimates, or service plan information displayed on the Website are for general guidance only. Actual prices, availability, and terms are determined solely by the third-party service providers. Internet Network charges separate service and coordination fees for our facilitation services.`
   },
   {
-    id: "guarantee",
-    icon: ShieldX,
-    title: "No Guarantee",
-    content: "While we strive to provide accurate information, we make no guarantees regarding service availability at your location, specific speeds, channels, or features, promotional pricing or offers, or installation timeframes."
-  },
-  {
-    id: "third-party",
-    icon: Users,
-    title: "Third-Party Responsibility",
-    content: "All services are provided directly by third-party service providers. Internet Network is not responsible for the quality, performance, or reliability of these services. Any service-related issues should be directed to the respective provider."
-  },
-  {
-    id: "contact",
-    icon: Phone,
-    title: "Contact",
-    content: `For questions about this disclaimer, contact us at ${PHONE_NUMBER} or ${EMAIL}. We're happy to clarify any points or address your concerns.`
+    id: "advice",
+    title: "4. No Professional Advice",
+    content: `All information provided on the Website is for general informational purposes only. It should not be considered professional, technical, or legal advice. Customers are encouraged to verify all service details directly with the applicable service provider.`
   },
 ];
 
@@ -76,7 +57,7 @@ const Disclaimer = () => {
             <p className="text-lg text-primary-foreground/80">
               Important information about our services and limitations
             </p>
-            <p className="text-sm text-primary-foreground/60 mt-4">Last updated: January 2026</p>
+            <p className="text-sm text-primary-foreground/60 mt-4">Effective Date: January 2026</p>
           </motion.div>
         </div>
       </section>
@@ -89,23 +70,16 @@ const Disclaimer = () => {
             animate="visible"
             className="space-y-6"
           >
-            {disclaimerContent.map((item, index) => (
+            {disclaimerContent.map((item) => (
               <motion.div key={item.id} variants={itemVariants}>
                 <Card className="border-0 shadow-lg hover:shadow-xl transition-shadow duration-300">
                   <CardContent className="p-6 md:p-8">
-                    <div className="flex items-start gap-4">
-                      <div className="flex items-center justify-center w-12 h-12 rounded-xl bg-primary/10 text-primary shrink-0">
-                        <item.icon className="h-6 w-6" />
-                      </div>
-                      <div className="flex-1">
-                        <h3 className="text-lg md:text-xl font-semibold mb-3 text-foreground">
-                          {index + 1}. {item.title}
-                        </h3>
-                        <p className="text-muted-foreground leading-relaxed">
-                          {item.content}
-                        </p>
-                      </div>
-                    </div>
+                    <h3 className="text-lg md:text-xl font-semibold mb-3 text-foreground">
+                      {item.title}
+                    </h3>
+                    <p className="text-muted-foreground leading-relaxed whitespace-pre-line">
+                      {item.content}
+                    </p>
                   </CardContent>
                 </Card>
               </motion.div>

@@ -1,53 +1,68 @@
 import { Layout } from "@/components/layout/Layout";
 import { motion } from "framer-motion";
-import { Shield, Database, Share2, Lock, UserCheck, Cookie, Phone, Eye } from "lucide-react";
+import { Shield } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
-
-const PHONE_NUMBER = "1(515)-305-4012";
-const EMAIL = "support@internetnetwork.com";
 
 const privacyContent = [
   {
+    id: "introduction",
+    title: "1. Introduction",
+    content: `Internet Network ("we," "our," or "us") is committed to protecting your privacy and handling your personal information in accordance with applicable U.S. privacy laws. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you visit www.internetnetwork.us or use our service guidance and coordination services.\n\nBy using our Website, you agree to the terms of this Privacy Policy. If you do not agree, please discontinue use of our Website.`
+  },
+  {
     id: "collect",
-    icon: Database,
-    title: "Information We Collect",
-    content: "We collect information you provide directly, including name and contact information, phone number and email address, service address, and service preferences and requirements. This information helps us serve you better."
+    title: "2. Information We Collect",
+    content: `Personal Information\n\nWe may collect personal information that you voluntarily provide when using our services, including:\n\n• Name, email address, and phone number\n• Service address (street, city, state, ZIP code)\n• Selected service plan preferences\n• Any information you provide through contact forms or communications with us\n\nAutomatically Collected Information\n\nWhen you visit our Website, we may automatically collect certain information, including:\n\n• IP address and browser type\n• Device information and operating system\n• Pages visited and time spent on each page\n• Referring website addresses\n• Click patterns and other website usage data`
   },
   {
     id: "use",
-    icon: Eye,
-    title: "How We Use Your Information",
-    content: "We use your information to help you find suitable internet and TV services, connect you with service providers, respond to your inquiries promptly, and continuously improve our services for all customers."
+    title: "3. How We Use Your Information",
+    content: `We use the information collected to:\n\n• Provide service guidance and plan recommendations\n• Coordinate installation scheduling with third-party service providers\n• Communicate with you about services, availability, and updates\n• Improve our Website and user experience\n• Send promotional materials only if you have opted in\n• Comply with legal obligations\n• Prevent fraud and ensure the security of our services`
   },
   {
     id: "sharing",
-    icon: Share2,
-    title: "Information Sharing",
-    content: "We may share your information with internet and TV service providers to fulfill your service requests, and with service partners who assist in our operations. We do not sell your personal information to third parties under any circumstances."
-  },
-  {
-    id: "security",
-    icon: Lock,
-    title: "Data Security",
-    content: "We implement appropriate security measures to protect your personal information, including encryption and secure data storage. However, no method of transmission over the Internet is 100% secure, and we cannot guarantee absolute security."
-  },
-  {
-    id: "rights",
-    icon: UserCheck,
-    title: "Your Rights",
-    content: "You have the right to access your personal information, request correction of inaccurate data, request deletion of your data, and opt out of marketing communications at any time. Contact us to exercise these rights."
+    title: "4. Information Sharing and Disclosure",
+    content: `We do not sell or rent your personal information to third parties.\n\nWe may share your information with:\n\n• Third-party service providers for the purpose of installation scheduling and service coordination\n• Legal authorities, when required by law or to protect the rights, safety, or property of Internet Network or others`
   },
   {
     id: "cookies",
-    icon: Cookie,
-    title: "Cookies",
-    content: "Our website may use cookies to enhance your experience, remember your preferences, and analyze site traffic. You can control cookie settings through your browser at any time."
+    title: "5. Cookies and Tracking Technologies",
+    content: `We use cookies and similar technologies to enhance Website performance, track usage patterns, and improve user experience. You may adjust your browser settings to refuse cookies, but some Website features may not function properly.`
+  },
+  {
+    id: "security",
+    title: "6. Data Security",
+    content: `We implement industry-standard technical and organizational measures to protect your personal information. However, no system is completely secure, and we cannot guarantee absolute security.`
+  },
+  {
+    id: "rights",
+    title: "7. Your Privacy Rights",
+    content: `You may access, update, or request deletion of your personal information by contacting us directly. Certain information may be retained to comply with legal obligations or enforce agreements.`
+  },
+  {
+    id: "ccpa",
+    title: "8. California Privacy Rights (CCPA)",
+    content: `California residents have specific rights under the CCPA, including the right to request disclosure of information collected, the right to request deletion, and the right to opt-out of the sale of personal information. Internet Network does not sell personal information.`
+  },
+  {
+    id: "children",
+    title: "9. Children's Privacy",
+    content: `Our services are not directed to individuals under 13. We do not knowingly collect personal information from children under 13.`
+  },
+  {
+    id: "links",
+    title: "10. Third-Party Links",
+    content: `Our Website may contain links to third-party websites. We are not responsible for the privacy practices or content of third-party websites.`
+  },
+  {
+    id: "changes",
+    title: "11. Changes to This Privacy Policy",
+    content: `We may update this Privacy Policy from time to time. Any changes will be posted on this page with a revised "Effective Date." Continued use of the Website constitutes acceptance of the updated Privacy Policy.`
   },
   {
     id: "contact",
-    icon: Phone,
-    title: "Contact Us",
-    content: `For privacy-related questions or concerns, contact us at ${PHONE_NUMBER} or ${EMAIL}. We take your privacy seriously and will respond to your inquiries as quickly as possible.`
+    title: "12. Contact Us",
+    content: `If you have questions or concerns about this Privacy Policy or our data practices, please contact us:\n\nInternet Network\n\nWebsite: https://www.internetnetwork.us\n\nEmail: Support@internetnetwork.us\n\nPhone: (515) 305-4012\n\nAddress: 3708 Merle Hay Rd Des Moines, IA 50310`
   },
 ];
 
@@ -82,7 +97,7 @@ const Privacy = () => {
             <p className="text-lg text-primary-foreground/80">
               Your privacy matters to us. Learn how we protect your information.
             </p>
-            <p className="text-sm text-primary-foreground/60 mt-4">Last updated: January 2026</p>
+            <p className="text-sm text-primary-foreground/60 mt-4">Effective Date: January 2026</p>
           </motion.div>
         </div>
       </section>
@@ -95,23 +110,16 @@ const Privacy = () => {
             animate="visible"
             className="space-y-6"
           >
-            {privacyContent.map((item, index) => (
+            {privacyContent.map((item) => (
               <motion.div key={item.id} variants={itemVariants}>
                 <Card className="border-0 shadow-lg hover:shadow-xl transition-shadow duration-300">
                   <CardContent className="p-6 md:p-8">
-                    <div className="flex items-start gap-4">
-                      <div className="flex items-center justify-center w-12 h-12 rounded-xl bg-primary/10 text-primary shrink-0">
-                        <item.icon className="h-6 w-6" />
-                      </div>
-                      <div className="flex-1">
-                        <h3 className="text-lg md:text-xl font-semibold mb-3 text-foreground">
-                          {index + 1}. {item.title}
-                        </h3>
-                        <p className="text-muted-foreground leading-relaxed">
-                          {item.content}
-                        </p>
-                      </div>
-                    </div>
+                    <h3 className="text-lg md:text-xl font-semibold mb-3 text-foreground">
+                      {item.title}
+                    </h3>
+                    <p className="text-muted-foreground leading-relaxed whitespace-pre-line">
+                      {item.content}
+                    </p>
                   </CardContent>
                 </Card>
               </motion.div>

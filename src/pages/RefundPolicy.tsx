@@ -1,47 +1,33 @@
 import { Layout } from "@/components/layout/Layout";
 import { motion } from "framer-motion";
-import { RotateCcw, Briefcase, Users, XCircle, CheckCircle, HeadphonesIcon, HelpCircle } from "lucide-react";
+import { RotateCcw } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
-
-const PHONE_NUMBER = "1(515)-305-4012";
-const EMAIL = "support@internetnetwork.com";
 
 const refundContent = [
   {
-    id: "services",
-    icon: Briefcase,
-    title: "Our Services",
-    content: "Internet Network provides free consultation services to help you find internet and TV providers. We do not charge for our advisory services, so there are no fees to refund from our end."
+    id: "overview",
+    title: "1. Overview",
+    content: `This Refund & Cancellation Policy applies solely to the service guidance, coordination, and installation scheduling services provided by Internet Network. It does not cover any services, charges, or fees billed by third-party service providers (such as internet, cable, or telecommunications providers), which are subject to the providers' own terms and policies.`
+  },
+  {
+    id: "completion",
+    title: "2. Service Completion and Refunds",
+    content: `Once Internet Network has completed its service obligations, including:\n\n• Collecting customer information,\n• Guiding customers in selecting service plans, and\n• Coordinating installation scheduling with the service provider\n\nand the third-party provider has completed the installation and activation of services, no refunds will be issued under any circumstances.`
+  },
+  {
+    id: "non-refundable",
+    title: "3. Non-Refundable Fees",
+    content: `All fees charged by Internet Network for service guidance, coordination, and installation scheduling are non-refundable once services have been fully delivered.\n\nThis includes:\n\n• Service and setup fees\n• Coordination and scheduling charges\n• Any other fees related to Internet Network's facilitation services`
   },
   {
     id: "third-party",
-    icon: Users,
-    title: "Third-Party Service Providers",
-    content: "All internet and TV services are provided by third-party providers. Refund and cancellation policies are determined by these providers, not Internet Network. Each provider has their own terms regarding refunds."
+    title: "4. Third-Party Provider Charges",
+    content: `All charges, invoices, or fees from third-party providers are managed exclusively by the provider. Internet Network is not responsible for third-party billing, refunds, cancellations, or disputes. Customers must contact the provider directly for any provider-related issues.`
   },
   {
-    id: "cancellation",
-    icon: XCircle,
-    title: "Cancellation Process",
-    content: "If you wish to cancel services with your provider: Contact the service provider directly using their customer service number, review your service agreement for cancellation terms and any applicable fees, and return any equipment as required by the provider."
-  },
-  {
-    id: "satisfaction",
-    icon: CheckCircle,
-    title: "Satisfaction Guarantee",
-    content: "Many providers offer satisfaction guarantee periods (typically 30 days) during which you can cancel without penalty. Contact your provider for specific details about their guarantee period and terms."
-  },
-  {
-    id: "assistance",
-    icon: HeadphonesIcon,
-    title: "Our Assistance",
-    content: `If you're having issues with your service or need help with cancellation, contact us at ${PHONE_NUMBER}. While we cannot process cancellations directly, we can provide guidance and support throughout the process.`
-  },
-  {
-    id: "questions",
-    icon: HelpCircle,
-    title: "Questions",
-    content: `For questions about this policy, contact us at ${EMAIL}. We're here to help clarify any concerns you may have about refunds and cancellations.`
+    id: "requests",
+    title: "5. Refund Requests",
+    content: `Refund requests will only be considered prior to completion of our services. To request a refund before service completion, customers should contact us with the following information:\n\n• Full name\n• Service address\n• Details of the service (invoice/order number, if available)\n• Reason for the request\n\nInternet Network reserves the right to evaluate all refund requests on a case-by-case basis and in accordance with this policy.`
   },
 ];
 
@@ -76,7 +62,7 @@ const RefundPolicy = () => {
             <p className="text-lg text-primary-foreground/80">
               Understand our refund and cancellation guidelines
             </p>
-            <p className="text-sm text-primary-foreground/60 mt-4">Last updated: January 2026</p>
+            <p className="text-sm text-primary-foreground/60 mt-4">Effective Date: January 2026</p>
           </motion.div>
         </div>
       </section>
@@ -89,23 +75,16 @@ const RefundPolicy = () => {
             animate="visible"
             className="space-y-6"
           >
-            {refundContent.map((item, index) => (
+            {refundContent.map((item) => (
               <motion.div key={item.id} variants={itemVariants}>
                 <Card className="border-0 shadow-lg hover:shadow-xl transition-shadow duration-300">
                   <CardContent className="p-6 md:p-8">
-                    <div className="flex items-start gap-4">
-                      <div className="flex items-center justify-center w-12 h-12 rounded-xl bg-primary/10 text-primary shrink-0">
-                        <item.icon className="h-6 w-6" />
-                      </div>
-                      <div className="flex-1">
-                        <h3 className="text-lg md:text-xl font-semibold mb-3 text-foreground">
-                          {index + 1}. {item.title}
-                        </h3>
-                        <p className="text-muted-foreground leading-relaxed">
-                          {item.content}
-                        </p>
-                      </div>
-                    </div>
+                    <h3 className="text-lg md:text-xl font-semibold mb-3 text-foreground">
+                      {item.title}
+                    </h3>
+                    <p className="text-muted-foreground leading-relaxed whitespace-pre-line">
+                      {item.content}
+                    </p>
                   </CardContent>
                 </Card>
               </motion.div>
