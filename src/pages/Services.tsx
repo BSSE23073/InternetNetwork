@@ -1,5 +1,5 @@
 import { Layout } from "@/components/layout/Layout";
-import { Phone, Wifi, Tv, Package, Check, AlertCircle } from "lucide-react";
+import { Phone, Wifi, Tv, Package, Check, AlertCircle, FileText } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
 import { motion } from "framer-motion";
@@ -213,7 +213,7 @@ const Services = () => {
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
               >
-                <Card className={`h-full ${plan.popular ? 'border-2 border-primary' : ''}`}>
+                <Card className={`h-full flex flex-col ${plan.popular ? 'border-2 border-primary' : ''}`}>
                   {plan.popular && (
                     <div className="bg-primary text-primary-foreground text-xs font-semibold py-1.5 text-center">
                       Most Popular
@@ -224,8 +224,22 @@ const Services = () => {
                     <div className="text-2xl font-bold text-primary">{plan.price} / mo</div>
                     <CardDescription>{plan.speed}</CardDescription>
                   </CardHeader>
-                  <CardContent>
-                    <p className="text-muted-foreground">{plan.description}</p>
+                  <CardContent className="flex-1 flex flex-col">
+                    <p className="text-muted-foreground mb-4">{plan.description}</p>
+                    <div className="mt-auto flex flex-col gap-2">
+                      <Button asChild className="w-full gap-2">
+                        <a href={PHONE_LINK}>
+                          <Phone className="h-4 w-4" />
+                          Call Now
+                        </a>
+                      </Button>
+                      <Button asChild variant="outline" className="w-full gap-2">
+                        <Link to="/contact?source=availability">
+                          <FileText className="h-4 w-4" />
+                          Check Availability
+                        </Link>
+                      </Button>
+                    </div>
                   </CardContent>
                 </Card>
               </motion.div>
@@ -307,7 +321,7 @@ const Services = () => {
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
               >
-                <Card className={`h-full ${plan.popular ? 'border-2 border-primary' : ''}`}>
+                <Card className={`h-full flex flex-col ${plan.popular ? 'border-2 border-primary' : ''}`}>
                   {plan.popular && (
                     <div className="bg-primary text-primary-foreground text-xs font-semibold py-1.5 text-center">
                       Most Popular
@@ -318,8 +332,22 @@ const Services = () => {
                     <div className="text-2xl font-bold text-primary">{plan.price} / mo</div>
                     <CardDescription>{plan.channels}</CardDescription>
                   </CardHeader>
-                  <CardContent>
-                    <p className="text-muted-foreground">{plan.description}</p>
+                  <CardContent className="flex-1 flex flex-col">
+                    <p className="text-muted-foreground mb-4">{plan.description}</p>
+                    <div className="mt-auto flex flex-col gap-2">
+                      <Button asChild className="w-full gap-2">
+                        <a href={PHONE_LINK}>
+                          <Phone className="h-4 w-4" />
+                          Call Now
+                        </a>
+                      </Button>
+                      <Button asChild variant="outline" className="w-full gap-2">
+                        <Link to="/contact?source=availability">
+                          <FileText className="h-4 w-4" />
+                          Check Availability
+                        </Link>
+                      </Button>
+                    </div>
                   </CardContent>
                 </Card>
               </motion.div>
@@ -401,7 +429,7 @@ const Services = () => {
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
               >
-                <Card className={`h-full ${plan.popular ? 'border-2 border-primary' : ''}`}>
+                <Card className={`h-full flex flex-col ${plan.popular ? 'border-2 border-primary' : ''}`}>
                   {plan.popular && (
                     <div className="bg-primary text-primary-foreground text-xs font-semibold py-1.5 text-center">
                       Most Popular
@@ -411,8 +439,22 @@ const Services = () => {
                     <CardTitle>{plan.name}</CardTitle>
                     <div className="text-2xl font-bold text-primary">{plan.price} / mo</div>
                   </CardHeader>
-                  <CardContent>
-                    <p className="text-muted-foreground">{plan.description}</p>
+                  <CardContent className="flex-1 flex flex-col">
+                    <p className="text-muted-foreground mb-4">{plan.description}</p>
+                    <div className="mt-auto flex flex-col gap-2">
+                      <Button asChild className="w-full gap-2">
+                        <a href={PHONE_LINK}>
+                          <Phone className="h-4 w-4" />
+                          Call Now
+                        </a>
+                      </Button>
+                      <Button asChild variant="outline" className="w-full gap-2">
+                        <Link to="/contact?source=availability">
+                          <FileText className="h-4 w-4" />
+                          Check Availability
+                        </Link>
+                      </Button>
+                    </div>
                   </CardContent>
                 </Card>
               </motion.div>
