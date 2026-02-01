@@ -1,10 +1,11 @@
 import { Layout } from "@/components/layout/Layout";
-import { Phone, Mail, MapPin, Send, Loader2 } from "lucide-react";
+import { Phone, Mail, MapPin, Send, Loader2, Clock } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { useState, useEffect } from "react";
 import { useToast } from "@/hooks/use-toast";
 import { useSearchParams } from "react-router-dom";
@@ -13,8 +14,15 @@ import { supabase } from "@/integrations/supabase/client";
 
 const PHONE_NUMBER = "1(515)-305-4012";
 const PHONE_LINK = "tel:+15153054012";
-const EMAIL = "support@internetnetwork.com";
-const ADDRESS = "3708 Merle Hay Rd, Des Moines, IA 50310";
+const EMAIL = "Support@internetnetwork.us";
+const ADDRESS = "3708 Merle Hay Rd Des Moines, IA 50310";
+
+const serviceOptions = [
+  "Internet Only",
+  "TV Only",
+  "Internet + TV Bundle",
+  "Not Sure Yet",
+];
 
 const Contact = () => {
   const { toast } = useToast();
@@ -24,7 +32,11 @@ const Contact = () => {
     name: "",
     email: "",
     phone: "",
+    serviceInterest: "",
     address: "",
+    city: "",
+    state: "",
+    zipCode: "",
     message: "",
   });
 
@@ -39,6 +51,10 @@ const Contact = () => {
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
+  };
+
+  const handleSelectChange = (value: string) => {
+    setFormData({ ...formData, serviceInterest: value });
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -57,7 +73,7 @@ const Contact = () => {
         description: "Thank you for contacting us. We'll get back to you soon.",
       });
 
-      setFormData({ name: "", email: "", phone: "", address: "", message: "" });
+      setFormData({ name: "", email: "", phone: "", serviceInterest: "", address: "", city: "", state: "", zipCode: "", message: "" });
     } catch (error) {
       console.error("Error submitting form:", error);
       toast({
@@ -85,9 +101,9 @@ const Contact = () => {
             transition={{ duration: 0.6 }}
             className="text-center max-w-3xl mx-auto"
           >
-            <h1 className="text-3xl md:text-5xl lg:text-6xl font-bold mb-4">Contact Us</h1>
+            <h1 className="text-3xl md:text-5xl lg:text-6xl font-bold mb-4">Get in Touch</h1>
             <p className="text-base md:text-xl text-primary-foreground/90 px-2">
-              Have questions? We're here to help. Reach out and let's get you connected.
+              Interested in exploring internet and TV services in your area? Complete the form below or reach out to us directly.
             </p>
           </motion.div>
         </div>
@@ -107,26 +123,26 @@ const Contact = () => {
               <Card className="border-0 shadow-2xl overflow-hidden">
                 <div className="h-2 bg-gradient-to-r from-primary via-accent to-secondary" />
                 <CardHeader className="pb-4">
-                  <CardTitle className="text-2xl">Send Us a Message</CardTitle>
+                  <CardTitle className="text-2xl">Check Availability</CardTitle>
                   <CardDescription>
-                    Fill out the form below and we'll get back to you as soon as possible.
+                    Fill out the form below and we'll help you find the best services in your area.
                   </CardDescription>
                 </CardHeader>
                 <CardContent>
                   <form onSubmit={handleSubmit} className="space-y-4 md:space-y-5">
+                    <div className="space-y-2">
+                      <Label htmlFor="name">Full Name *</Label>
+                      <Input
+                        id="name"
+                        name="name"
+                        placeholder="John Doe"
+                        value={formData.name}
+                        onChange={handleChange}
+                        required
+                        className="h-11 md:h-12 text-sm md:text-base"
+                      />
+                    </div>
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                      <div className="space-y-2">
-                        <Label htmlFor="name">Full Name *</Label>
-                        <Input
-                          id="name"
-                          name="name"
-                          placeholder="John Doe"
-                          value={formData.name}
-                          onChange={handleChange}
-                          required
-                          className="h-11 md:h-12 text-sm md:text-base"
-                        />
-                      </div>
                       <div className="space-y-2">
                         <Label htmlFor="email">Email Address *</Label>
                         <Input
@@ -140,10 +156,8 @@ const Contact = () => {
                           className="h-11 md:h-12 text-sm md:text-base"
                         />
                       </div>
-                    </div>
-                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                       <div className="space-y-2">
-                        <Label htmlFor="phone">Phone Number</Label>
+                        <Label htmlFor="phone">Phone Number *</Label>
                         <Input
                           id="phone"
                           name="phone"
@@ -151,34 +165,89 @@ const Contact = () => {
                           placeholder="(555) 123-4567"
                           value={formData.phone}
                           onChange={handleChange}
-                          className="h-11 md:h-12 text-sm md:text-base"
-                        />
-                      </div>
-                      <div className="space-y-2">
-                        <Label htmlFor="address">Service Address</Label>
-                        <Input
-                          id="address"
-                          name="address"
-                          placeholder="123 Main St, City, State"
-                          value={formData.address}
-                          onChange={handleChange}
+                          required
                           className="h-11 md:h-12 text-sm md:text-base"
                         />
                       </div>
                     </div>
                     <div className="space-y-2">
-                      <Label htmlFor="message">Message *</Label>
+                      <Label htmlFor="serviceInterest">Service Interested In *</Label>
+                      <Select value={formData.serviceInterest} onValueChange={handleSelectChange} required>
+                        <SelectTrigger className="h-11 md:h-12">
+                          <SelectValue placeholder="Select a service" />
+                        </SelectTrigger>
+                        <SelectContent>
+                          {serviceOptions.map((option) => (
+                            <SelectItem key={option} value={option}>{option}</SelectItem>
+                          ))}
+                        </SelectContent>
+                      </Select>
+                    </div>
+                    <div className="space-y-2">
+                      <Label htmlFor="address">Service Address *</Label>
+                      <Input
+                        id="address"
+                        name="address"
+                        placeholder="123 Main St"
+                        value={formData.address}
+                        onChange={handleChange}
+                        required
+                        className="h-11 md:h-12 text-sm md:text-base"
+                      />
+                    </div>
+                    <div className="grid grid-cols-2 sm:grid-cols-3 gap-4">
+                      <div className="space-y-2">
+                        <Label htmlFor="city">City *</Label>
+                        <Input
+                          id="city"
+                          name="city"
+                          placeholder="Des Moines"
+                          value={formData.city}
+                          onChange={handleChange}
+                          required
+                          className="h-11 md:h-12 text-sm md:text-base"
+                        />
+                      </div>
+                      <div className="space-y-2">
+                        <Label htmlFor="state">State *</Label>
+                        <Input
+                          id="state"
+                          name="state"
+                          placeholder="IA"
+                          value={formData.state}
+                          onChange={handleChange}
+                          required
+                          className="h-11 md:h-12 text-sm md:text-base"
+                        />
+                      </div>
+                      <div className="space-y-2 col-span-2 sm:col-span-1">
+                        <Label htmlFor="zipCode">ZIP Code *</Label>
+                        <Input
+                          id="zipCode"
+                          name="zipCode"
+                          placeholder="50310"
+                          value={formData.zipCode}
+                          onChange={handleChange}
+                          required
+                          className="h-11 md:h-12 text-sm md:text-base"
+                        />
+                      </div>
+                    </div>
+                    <div className="space-y-2">
+                      <Label htmlFor="message">Additional Information</Label>
                       <Textarea
                         id="message"
                         name="message"
                         placeholder="Tell us about your internet and TV needs..."
-                        rows={5}
+                        rows={4}
                         value={formData.message}
                         onChange={handleChange}
-                        required
                         className="resize-none"
                       />
                     </div>
+                    <p className="text-xs text-muted-foreground">
+                      By submitting this form, you agree to be contacted by Internet Network regarding available internet and TV services in your area. Your information will be handled according to our Privacy Policy.
+                    </p>
                     <Button 
                       type="submit" 
                       className="w-full h-12 text-base gap-2 bg-gradient-to-r from-primary to-accent hover:opacity-90" 
@@ -192,7 +261,7 @@ const Contact = () => {
                       ) : (
                         <>
                           <Send className="h-5 w-5" />
-                          Send Message
+                          Submit Your Request
                         </>
                       )}
                     </Button>
@@ -210,7 +279,7 @@ const Contact = () => {
               className="space-y-8"
             >
               <div>
-                <h2 className="text-2xl md:text-3xl font-bold mb-4">Get In Touch</h2>
+                <h2 className="text-2xl md:text-3xl font-bold mb-4">Contact Information</h2>
                 <p className="text-muted-foreground text-lg">
                   The fastest way to get help is to give us a call. Our friendly team is standing by 
                   to answer your questions and help you find the perfect plan.
@@ -220,28 +289,36 @@ const Contact = () => {
               <div className="space-y-4">
                 {[
                   {
-                    icon: Phone,
-                    title: "Call Us",
-                    value: PHONE_NUMBER,
-                    href: PHONE_LINK,
-                    sub: "Available Monday - Friday, 8am - 8pm",
+                    icon: MapPin,
+                    title: "Our Address",
+                    value: "Internet Network",
+                    sub: ADDRESS,
+                    href: null,
                     gradient: "from-primary to-accent",
                   },
                   {
-                    icon: Mail,
-                    title: "Email Us",
-                    value: EMAIL,
-                    href: `mailto:${EMAIL}`,
-                    sub: "We typically respond within 24 hours",
+                    icon: Phone,
+                    title: "Phone",
+                    value: "(515) 305-4012",
+                    href: PHONE_LINK,
+                    sub: null,
                     gradient: "from-accent to-secondary",
                   },
                   {
-                    icon: MapPin,
-                    title: "Our Location",
-                    value: ADDRESS,
+                    icon: Clock,
+                    title: "Hours",
+                    value: "Monday – Friday: 8:00 AM – 8:00 PM EST",
+                    sub: "Saturday: 9:00 AM – 5:00 PM EST",
                     href: null,
-                    sub: "Serving customers nationwide",
                     gradient: "from-secondary to-primary",
+                  },
+                  {
+                    icon: Mail,
+                    title: "Email",
+                    value: EMAIL,
+                    href: `mailto:${EMAIL}`,
+                    sub: "We typically respond within 24 hours.",
+                    gradient: "from-primary to-secondary",
                   },
                 ].map((item, index) => (
                   <motion.div
@@ -267,11 +344,13 @@ const Contact = () => {
                                 {item.value}
                               </a>
                             ) : (
-                              <p className="text-lg md:text-xl font-bold">{item.value}</p>
+                              <p className="text-base md:text-lg font-medium">{item.value}</p>
                             )}
-                            <p className="text-xs md:text-sm text-muted-foreground mt-1">
-                              {item.sub}
-                            </p>
+                            {item.sub && (
+                              <p className="text-xs md:text-sm text-muted-foreground mt-1">
+                                {item.sub}
+                              </p>
+                            )}
                           </div>
                         </div>
                       </CardContent>
@@ -280,12 +359,29 @@ const Contact = () => {
                 ))}
               </div>
 
-              {/* Quick Call CTA */}
+              {/* Business Hours Note */}
               <motion.div
                 initial={{ opacity: 0, scale: 0.95 }}
                 whileInView={{ opacity: 1, scale: 1 }}
                 viewport={{ once: true }}
                 transition={{ delay: 0.4 }}
+                className="p-4 md:p-6 rounded-xl md:rounded-2xl bg-muted/50 border"
+              >
+                <h3 className="font-bold text-base md:text-lg mb-2">Business Hours</h3>
+                <p className="text-sm md:text-base text-muted-foreground mb-4">
+                  7 Days a Week – Quick setup and fast response
+                </p>
+                <p className="text-xs text-muted-foreground italic">
+                  Note: For technical support or billing questions regarding your active service, please contact your service provider directly.
+                </p>
+              </motion.div>
+
+              {/* Quick Call CTA */}
+              <motion.div
+                initial={{ opacity: 0, scale: 0.95 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                viewport={{ once: true }}
+                transition={{ delay: 0.5 }}
                 className="p-4 md:p-6 rounded-xl md:rounded-2xl bg-gradient-to-br from-primary/10 to-accent/10 border border-primary/20"
               >
                 <h3 className="font-bold text-base md:text-lg mb-2">Need Help Right Away?</h3>

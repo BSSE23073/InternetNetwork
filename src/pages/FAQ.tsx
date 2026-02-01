@@ -3,70 +3,67 @@ import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/
 import { Button } from "@/components/ui/button";
 import { Phone, HelpCircle } from "lucide-react";
 import { motion } from "framer-motion";
+import { Link } from "react-router-dom";
 
 const PHONE_NUMBER = "1(515)-305-4012";
 const PHONE_LINK = "tel:+15153054012";
 
 const faqs = [
   {
-    question: "What services does Internet Network offer?",
-    answer: "Internet Network helps you find and set up home internet, cable TV, and bundled services from top providers. We compare options to find the best fit for your needs and budget.",
+    question: "What is Internet Network?",
+    answer: "Internet Network is an independent service coordination partner that helps customers explore and compare internet and TV services from multiple providers across the United States.",
   },
   {
-    question: "How does Internet Network work?",
-    answer: "Simply call us at (515) 305-4012, tell us about your needs, and our experts will recommend the best plans available in your area. We handle the coordination with providers and help schedule your installation.",
+    question: "How Does Internet Network Work?",
+    answer: "Simply enter your ZIP code or reach out to us directly. We'll identify the services available at your location and assist in coordinating installation with your chosen provider.",
   },
   {
-    question: "Is there a fee for using Internet Network's services?",
-    answer: "No, our consultation service is completely free. We're compensated by providers when you sign up through us, so there's no additional cost to you.",
+    question: "Are the Prices Shown Guaranteed?",
+    answer: "The prices displayed represent typical ranges based on current market information. Final pricing is confirmed during the availability check before you finalize your selection.",
   },
   {
-    question: "What internet speeds are available?",
-    answer: "Speeds vary by location and provider, ranging from 100 Mbps for basic plans up to 1 Gbps (1000 Mbps) for premium plans. Our team will help you determine what speed is right for your household's needs.",
+    question: "How Long Does Installation Take?",
+    answer: "Most providers schedule installation within 3–7 business days. Depending on your location, same-day or next-day options may also be available.",
   },
   {
-    question: "Do I need to sign a contract?",
-    answer: "Contract requirements vary by provider and plan. Some offer month-to-month options while others may require a 1-2 year commitment. We'll clearly explain all terms before you make a decision.",
+    question: "Do I Pay Internet Network or the Service Provider?",
+    answer: "All service payments are made directly to the third-party provider. Internet Network does not process or manage provider billing. However, we may charge a separate service and setup fee for coordinating your order and facilitating installation.",
   },
   {
-    question: "How long does installation take?",
-    answer: "Most installations can be scheduled within a few days to a week. The installation itself typically takes 1-3 hours depending on the services and equipment involved.",
+    question: "What Services Are Available in My Area?",
+    answer: "We show the services available at your location based on the address you provide. Enter your ZIP code on our website or call us at (515) 305-4012 to check availability.",
   },
   {
-    question: "What if I'm not satisfied with my service?",
-    answer: "Most providers offer a satisfaction guarantee period during which you can cancel without penalty. Contact us if you're having issues and we'll help you explore your options.",
+    question: "Are There Any Installation Fees?",
+    answer: "Installation fees depend on the provider and may vary by location. Many providers include free installation as part of promotional offers. Internet Network will clearly outline any applicable fees before you finalize your order.",
   },
   {
-    question: "Can I bundle internet and TV together?",
-    answer: "Yes! Bundling is often the most cost-effective option. Our bundle packages combine internet and TV services at a discounted rate compared to purchasing them separately.",
+    question: "Can I Cancel or Change My Service?",
+    answer: "All service cancellations or changes must be handled directly with the service provider, as they manage your account. Please review the provider's terms of service for details on their specific policies.",
   },
   {
-    question: "What equipment do I need?",
-    answer: "Basic equipment (router, modem, TV box) is typically included with your plan. Premium equipment options are available for enhanced performance. Our team will explain all equipment options during your consultation.",
+    question: "What If I Have Problems With My Service After Installation?",
+    answer: "If you experience any issues after installation, please contact your service provider's customer support. They have dedicated technical teams to assist and resolve problems efficiently.",
   },
   {
-    question: "Is my personal information secure?",
-    answer: "Yes, we take privacy seriously. Your information is only used to help set up your services and is never sold to third parties. Please review our Privacy Policy for complete details.",
+    question: "Do You Offer Business Services?",
+    answer: "While our primary focus is home internet and TV services, Internet Network can assist in connecting you with business internet solutions when needed. Contact us to discuss your business requirements.",
   },
   {
-    question: "What areas do you service?",
-    answer: "We help customers find services across many areas. Call us to check availability in your specific location – we'll let you know what options are available at your address.",
+    question: "What Equipment Will I Need?",
+    answer: "Required equipment depends on the provider and plan, and may include devices such as modems, routers, or other networking hardware. Some providers include equipment as part of the monthly plan, while others offer it for purchase separately.",
   },
   {
-    question: "How do I contact customer support?",
-    answer: "You can reach our support team by calling (515) 305-4012 or by filling out our online contact form. We're available to help with questions, concerns, or service changes.",
+    question: "Are There Contracts or Commitments Required?",
+    answer: "Some providers may require contracts or commitments for certain plans. Internet Network will inform you of any such requirements during the plan selection process.",
   },
   {
-    question: "Can I upgrade or downgrade my plan later?",
-    answer: "Yes, most providers allow plan changes. Some changes may affect your contract terms or pricing. Contact us to discuss your options if you need to modify your service.",
+    question: "How Do I Contact Customer Support?",
+    answer: "You can reach Internet Network customer support by phone at (515) 305-4012 or via email for assistance. We typically respond to inquiries within 24 hours.",
   },
   {
-    question: "What payment methods are accepted?",
-    answer: "Payment is made directly to your service provider. Most accept credit/debit cards, bank transfers, and automatic payment options. Specific payment methods vary by provider.",
-  },
-  {
-    question: "Are there any hidden fees?",
-    answer: "We believe in transparency. While the base prices are as advertised, there may be additional fees for equipment, taxes, or installation depending on the provider. We'll clearly explain all costs before you commit.",
+    question: "What Is Your Refund Policy?",
+    answer: "Refunds for services are governed by the provider's policies. Please contact your service provider for details. For fees charged by Internet Network for service guidance or coordination, please refer to our Refund & Cancellation Policy page for complete information.",
   },
 ];
 
@@ -96,7 +93,7 @@ const FAQ = () => {
             </motion.div>
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-4">Frequently Asked Questions</h1>
             <p className="text-lg md:text-xl text-primary-foreground/90">
-              Find answers to common questions about our services, plans, and process.
+              Find quick answers to common questions about our services.
             </p>
           </motion.div>
         </div>
@@ -131,6 +128,36 @@ const FAQ = () => {
         </div>
       </section>
 
+      {/* Have More Questions */}
+      <section className="py-16 md:py-20 section-alt">
+        <div className="container">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="text-center max-w-2xl mx-auto"
+          >
+            <h2 className="text-3xl md:text-4xl font-bold mb-4">Have More Questions?</h2>
+            <p className="text-lg mb-8 text-muted-foreground">
+              Can't find the answer you're looking for? Our team is ready to help.
+            </p>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
+                <Button asChild size="lg" className="gap-2">
+                  <a href={PHONE_LINK}>
+                    <Phone className="h-5 w-5" />
+                    Call {PHONE_NUMBER}
+                  </a>
+                </Button>
+              </motion.div>
+              <Button asChild size="lg" variant="outline" className="gap-2">
+                <Link to="/contact">Contact Us</Link>
+              </Button>
+            </div>
+          </motion.div>
+        </div>
+      </section>
+
       {/* CTA */}
       <section className="py-16 md:py-20 hero-gradient text-primary-foreground">
         <div className="container">
@@ -140,16 +167,13 @@ const FAQ = () => {
             viewport={{ once: true }}
             className="text-center"
           >
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">Still Have Questions?</h2>
+            <h2 className="text-3xl md:text-4xl font-bold mb-4">Ready to Get Connected?</h2>
             <p className="text-lg mb-8 text-primary-foreground/90 max-w-2xl mx-auto">
-              Our team is ready to help. Give us a call and we'll answer all your questions.
+              Start discovering the internet and TV services available in your area now.
             </p>
             <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
               <Button asChild size="lg" className="gap-2 bg-white text-primary hover:bg-white/90 shadow-lg">
-                <a href={PHONE_LINK}>
-                  <Phone className="h-5 w-5" />
-                  Call {PHONE_NUMBER}
-                </a>
+                <Link to="/contact?source=availability">Check Availability</Link>
               </Button>
             </motion.div>
           </motion.div>

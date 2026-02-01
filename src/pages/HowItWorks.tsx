@@ -1,60 +1,84 @@
 import { Layout } from "@/components/layout/Layout";
-import { Phone, MessageSquare, Calendar, CheckCircle, ArrowRight } from "lucide-react";
+import { Phone, MapPin, Eye, FileText, Calendar, Clock, DollarSign, Users, ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { Card, CardContent } from "@/components/ui/card";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { motion } from "framer-motion";
+import { Link } from "react-router-dom";
 
 const PHONE_NUMBER = "1(515)-305-4012";
 const PHONE_LINK = "tel:+15153054012";
 
 const steps = [
   {
-    icon: Phone,
+    icon: MapPin,
     step: "1",
-    title: "Give Us a Call",
-    description: "Contact our friendly team at (515) 305-4012. We're available to help you find the best internet and TV solutions for your home or business.",
-    details: [
-      "No obligation consultation",
-      "Speak with real experts",
-      "Get personalized recommendations",
+    title: "Enter Your Address",
+    description: "Provide your location to see which providers can serve your area. This helps us identify the best options for you.",
+    instructions: [
+      "Input your full street address",
+      "Include apartment or unit number if applicable",
+      "Verify your service location information",
     ],
     color: "from-primary to-accent",
   },
   {
-    icon: MessageSquare,
+    icon: Eye,
     step: "2",
-    title: "Share Your Needs",
-    description: "Tell us about your usage habits, household size, and budget. We'll use this information to match you with the perfect plan.",
-    details: [
-      "How many people use the internet?",
-      "What do you mainly use it for?",
-      "Do you need TV service too?",
+    title: "View Available Providers",
+    description: "We'll show all providers available at your address, along with their plans and pricing.",
+    instructions: [
+      "See which providers cover your area",
+      "Explore available plan options",
+      "Compare features and prices",
     ],
     color: "from-accent to-secondary",
   },
   {
-    icon: Calendar,
+    icon: FileText,
     step: "3",
-    title: "Schedule Installation",
-    description: "Once you've chosen your plan, we'll coordinate with the provider to schedule installation at a time that works for you.",
-    details: [
-      "Flexible scheduling options",
-      "Professional installation",
-      "Same-week appointments often available",
+    title: "Choose Your Plan",
+    description: "Select the plan that best meets your needs. Options may include internet-only, TV-only, or bundled packages depending on availability.",
+    instructions: [
+      "Review different service tiers",
+      "Evaluate plan features and costs",
+      "Pick your ideal package",
     ],
     color: "from-secondary to-primary",
   },
   {
-    icon: CheckCircle,
+    icon: Calendar,
     step: "4",
-    title: "Get Connected & Enjoy",
-    description: "After installation, you're ready to enjoy fast, reliable internet and entertainment. Our support team is always here if you need help.",
-    details: [
-      "Start streaming immediately",
-      "24/7 customer support",
-      "Satisfaction guaranteed",
+    title: "Schedule Installation",
+    description: "Once you've chosen a plan, we coordinate with the provider to schedule installation at a convenient time.",
+    instructions: [
+      "Select an installation date that works for you",
+      "Receive confirmation details",
+      "Prepare for service activation",
     ],
     color: "from-primary to-secondary",
+  },
+];
+
+const expectations = [
+  {
+    icon: MapPin,
+    title: "Service Availability",
+    description: "We'll display which services are available at your location, as coverage may vary by provider.",
+  },
+  {
+    icon: Clock,
+    title: "Installation Process",
+    description: "Most providers offer professional installation. Timing and fees depend on the provider and chosen plan.",
+  },
+  {
+    icon: DollarSign,
+    title: "Pricing Confirmation",
+    description: "Final pricing is confirmed by the provider when placing your order and may vary based on current promotions.",
+  },
+  {
+    icon: Users,
+    title: "Our Role",
+    description: "Internet Network helps you explore service options and connects you with providers. We act as an independent third-party service coordination partner.",
   },
 ];
 
@@ -76,7 +100,7 @@ const HowItWorks = () => {
           >
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-4">How It Works</h1>
             <p className="text-lg md:text-xl text-primary-foreground/90">
-              Getting connected with Internet Network is simple. Follow these four easy steps to enjoy fast, reliable service.
+              Getting started with Internet Network is simple! Follow these four easy steps to find and order internet and TV services in your area.
             </p>
           </motion.div>
         </div>
@@ -128,11 +152,14 @@ const HowItWorks = () => {
                       transition={{ delay: 0.2 }}
                     >
                       <Card className="border-0 shadow-lg bg-gradient-to-br from-muted/50 to-muted">
-                        <CardContent className="pt-6">
+                        <CardHeader>
+                          <CardTitle className="text-lg">Instructions:</CardTitle>
+                        </CardHeader>
+                        <CardContent>
                           <ul className="space-y-4">
-                            {step.details.map((detail, i) => (
+                            {step.instructions.map((instruction, i) => (
                               <motion.li 
-                                key={detail} 
+                                key={instruction} 
                                 className="flex items-center gap-3"
                                 initial={{ opacity: 0, x: -10 }}
                                 whileInView={{ opacity: 1, x: 0 }}
@@ -142,7 +169,7 @@ const HowItWorks = () => {
                                 <div className={`h-8 w-8 rounded-lg bg-gradient-to-br ${step.color} flex items-center justify-center`}>
                                   <ArrowRight className="h-4 w-4 text-white" />
                                 </div>
-                                <span className="text-foreground font-medium">{detail}</span>
+                                <span className="text-foreground font-medium">{instruction}</span>
                               </motion.li>
                             ))}
                           </ul>
@@ -168,6 +195,46 @@ const HowItWorks = () => {
         </div>
       </section>
 
+      {/* What to Expect */}
+      <section className="py-16 md:py-24 section-alt">
+        <div className="container">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="text-center mb-12"
+          >
+            <h2 className="text-3xl md:text-4xl font-bold mb-4">What to Expect</h2>
+          </motion.div>
+
+          <div className="grid md:grid-cols-2 gap-6 max-w-4xl mx-auto">
+            {expectations.map((item, index) => (
+              <motion.div
+                key={item.title}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: index * 0.1 }}
+              >
+                <Card className="h-full">
+                  <CardContent className="pt-6">
+                    <div className="flex items-start gap-4">
+                      <div className="h-12 w-12 rounded-xl bg-primary/10 flex items-center justify-center flex-shrink-0">
+                        <item.icon className="h-6 w-6 text-primary" />
+                      </div>
+                      <div>
+                        <h3 className="font-semibold text-lg mb-2">{item.title}</h3>
+                        <p className="text-muted-foreground">{item.description}</p>
+                      </div>
+                    </div>
+                  </CardContent>
+                </Card>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* CTA */}
       <section className="py-16 md:py-20 hero-gradient text-primary-foreground">
         <div className="container">
@@ -179,16 +246,23 @@ const HowItWorks = () => {
           >
             <h2 className="text-3xl md:text-4xl font-bold mb-4">Ready to Get Started?</h2>
             <p className="text-lg mb-8 text-primary-foreground/90 max-w-2xl mx-auto">
-              Call us now and take the first step toward better internet and TV service.
+              Enter your location to see exact pricing and plans available in your area.
             </p>
-            <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
-              <Button asChild size="lg" className="gap-2 bg-white text-primary hover:bg-white/90 shadow-lg">
-                <a href={PHONE_LINK}>
-                  <Phone className="h-5 w-5" />
-                  Call {PHONE_NUMBER}
-                </a>
-              </Button>
-            </motion.div>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
+                <Button asChild size="lg" className="gap-2 bg-white text-primary hover:bg-white/90 shadow-lg">
+                  <Link to="/contact?source=availability">Check Availability Now</Link>
+                </Button>
+              </motion.div>
+              <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
+                <Button asChild size="lg" variant="outline" className="gap-2 border-white text-white hover:bg-white/10">
+                  <a href={PHONE_LINK}>
+                    <Phone className="h-5 w-5" />
+                    Call {PHONE_NUMBER}
+                  </a>
+                </Button>
+              </motion.div>
+            </div>
           </motion.div>
         </div>
       </section>
