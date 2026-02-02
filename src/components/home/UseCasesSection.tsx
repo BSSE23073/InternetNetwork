@@ -123,9 +123,9 @@ export function UseCasesSection() {
                       </a>
                     </Button>
                     <Button asChild variant="outline" className="w-full gap-2 border-primary text-primary hover:bg-primary hover:text-white">
-                      <Link to="/contact?source=availability">
+                      <Link to="/services">
                         <FileText className="h-4 w-4" />
-                        Check Availability
+                        View Plans
                       </Link>
                     </Button>
                   </div>
