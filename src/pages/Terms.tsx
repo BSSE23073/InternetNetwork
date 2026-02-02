@@ -42,7 +42,7 @@ const termsContent = [
   {
     id: "cancellations",
     title: "8. Cancellations and Refunds",
-    content: `Refund eligibility depends on whether coordination work or scheduling has already been performed. Service and setup fees may be non-refundable once provider coordination has begun.`
+    content: `Once the setup and installation have been fully completed and the services have been delivered by the provider, the customer will no longer be eligible for any cancellation or refund.`
   },
   {
     id: "responsibilities",
