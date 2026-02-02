@@ -38,9 +38,9 @@ export function HeroSection() {
         <img 
           src={heroImage} 
           alt="Smart home connectivity" 
-          className="w-full h-full object-cover opacity-20"
+          className="w-full h-full object-cover opacity-40"
         />
-        <div className="absolute inset-0 bg-gradient-to-b from-primary/80 via-primary/60 to-primary/80" />
+        <div className="absolute inset-0 bg-gradient-to-b from-primary/60 via-primary/40 to-primary/60" />
       </div>
       {/* Background Effects */}
       <div className="absolute inset-0 overflow-hidden">

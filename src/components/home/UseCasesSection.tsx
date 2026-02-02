@@ -1,6 +1,8 @@
-import { Home, Briefcase, Smartphone, ArrowRight } from "lucide-react";
+import { Home, Briefcase, Smartphone, ArrowRight, Phone, FileText } from "lucide-react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
+import { Link } from "react-router-dom";
 import streamingFamily from "@/assets/streaming-family.jpg";
 import wifiRouter from "@/assets/wifi-router.jpg";
 import supportTeam from "@/assets/support-team.jpg";
@@ -92,9 +94,9 @@ export function UseCasesSection() {
                   </motion.div>
                   <CardTitle className="text-xl">{section.title}</CardTitle>
                 </CardHeader>
-                <CardContent>
+                <CardContent className="flex flex-col flex-grow">
                   <p className="text-muted-foreground mb-5 leading-relaxed">{section.description}</p>
-                  <ul className="space-y-3">
+                  <ul className="space-y-3 mb-6">
                     {section.features.map((feature, i) => (
                       <motion.li 
                         key={feature} 
@@ -111,6 +113,22 @@ export function UseCasesSection() {
                       </motion.li>
                     ))}
                   </ul>
+                  
+                  {/* Action Buttons */}
+                  <div className="flex flex-col gap-2 mt-auto">
+                    <Button asChild className="w-full gap-2 bg-primary hover:bg-primary/90 text-white">
+                      <a href="tel:+15153054012">
+                        <Phone className="h-4 w-4" />
+                        Call Now
+                      </a>
+                    </Button>
+                    <Button asChild variant="outline" className="w-full gap-2 border-primary text-primary hover:bg-primary hover:text-white">
+                      <Link to="/contact?source=availability">
+                        <FileText className="h-4 w-4" />
+                        Check Availability
+                      </Link>
+                    </Button>
+                  </div>
                 </CardContent>
               </Card>
             </motion.div>
