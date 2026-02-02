@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import heroImage from "@/assets/hero-home.jpg";
 
-const PHONE_NUMBER = "1(515)-305-4012";
+const PHONE_NUMBER = "(515) 305-4012";
 const PHONE_LINK = "tel:+15153054012";
 
 const trustBadges = [
