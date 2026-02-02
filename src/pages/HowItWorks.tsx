@@ -5,7 +5,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 
-const PHONE_NUMBER = "1(515)-305-4012";
+const PHONE_NUMBER = "(515) 305-4012";
 const PHONE_LINK = "tel:+15153054012";
 
 const steps = [
