@@ -116,7 +116,7 @@ export function Footer() {
         <div className="mt-12 pt-8 border-t border-background/20">
           <div className="flex flex-col md:flex-row justify-between items-center gap-4">
             <p className="text-sm text-background/70">
-              © {new Date().getFullYear()} Internet Network. All rights reserved.
+              © {new Date().getFullYear()} Internet Network LLC. All rights reserved.
             </p>
             <p className="text-xs text-background/50">
               Internet Network is an independent marketing partner and is not affiliated with any specific provider.
