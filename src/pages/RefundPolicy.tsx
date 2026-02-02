@@ -25,9 +25,19 @@ const refundContent = [
     content: `All charges, invoices, or fees from third-party providers are managed exclusively by the provider. Internet Network is not responsible for third-party billing, refunds, cancellations, or disputes. Customers must contact the provider directly for any provider-related issues.`
   },
   {
-    id: "requests",
-    title: "5. Refund Requests",
-    content: `Refund requests will only be considered prior to completion of our services. To request a refund before service completion, customers should contact us with the following information:\n\n• Full name\n• Service address\n• Details of the service (invoice/order number, if available)\n• Reason for the request\n\nInternet Network reserves the right to evaluate all refund requests on a case-by-case basis and in accordance with this policy.`
+    id: "eligibility",
+    title: "5. Refund Eligibility",
+    content: `Customers may apply for a refund only under the following circumstances:\n\n• If the service was not initiated or activated from our side.\n• If the service was not completed due to a technical issue from our end.\n• If the service was cancelled before delivery or activation to the service provider.\n\nRefund requests made after the service has been activated or delivered will not be eligible.`
+  },
+  {
+    id: "processing",
+    title: "6. Refund Processing Time",
+    content: `Once a refund request is approved, the refund will be processed within 10–14 business days.`
+  },
+  {
+    id: "required-details",
+    title: "7. Required Details for Refund Request",
+    content: `To apply for a refund, the customer must provide:\n\n• Full name\n• Registered email address or phone number\n• Order ID / Transaction ID\n• Reason for the refund request\n• Proof of payment (if required)\n\nAll refund requests are reviewed before approval, and incomplete information may result in delays or rejection.`
   },
 ];
 
