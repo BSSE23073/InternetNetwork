@@ -573,7 +573,7 @@ const Services = () => {
               <Button asChild size="lg" className="gap-2 bg-white text-primary hover:bg-white/90 shadow-lg">
                 <Link to="/contact?source=availability">Check Availability Now</Link>
               </Button>
-              <Button asChild size="lg" variant="outline" className="gap-2 border-white text-white hover:bg-white/10">
+              <Button asChild size="lg" className="gap-2 bg-white/10 border border-white text-white hover:bg-white/20">
                 <a href={PHONE_LINK}>
                   <Phone className="h-5 w-5" />
                   Call {PHONE_NUMBER}
