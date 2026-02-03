@@ -37,12 +37,17 @@ const handler = async (req: Request): Promise<Response> => {
       throw new Error("Missing required fields: name, email, or phone");
     }
 
-    // Initialize Supabase client
-    const supabaseUrl = Deno.env.get("SUPABASE_URL")!;
-    const supabaseServiceKey = Deno.env.get("SUPABASE_SERVICE_ROLE_KEY")!;
-    const supabase = createClient(supabaseUrl, supabaseServiceKey);
+    // Initialize EXTERNAL Supabase client (user's own Supabase project)
+    const externalSupabaseUrl = Deno.env.get("EXTERNAL_SUPABASE_URL");
+    const externalSupabaseKey = Deno.env.get("EXTERNAL_SUPABASE_SERVICE_KEY");
 
-    // Save to database first (primary storage)
+    if (!externalSupabaseUrl || !externalSupabaseKey) {
+      throw new Error("External Supabase credentials not configured");
+    }
+
+    const supabase = createClient(externalSupabaseUrl, externalSupabaseKey);
+
+    // Save to external database (primary storage)
     const { data: dbData, error: dbError } = await supabase
       .from("contact_submissions")
       .insert({
@@ -62,10 +67,10 @@ const handler = async (req: Request): Promise<Response> => {
 
     if (dbError) {
       console.error("Database insert error:", dbError);
-      throw new Error("Failed to save submission to database");
+      throw new Error(`Failed to save submission to external database: ${dbError.message}`);
     }
 
-    console.log("Submission saved to database:", dbData.id);
+    console.log("Submission saved to external Supabase:", dbData.id);
 
     // Attempt to send email (secondary notification - best effort)
     let emailSent = false;
