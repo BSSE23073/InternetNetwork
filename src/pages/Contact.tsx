@@ -11,6 +11,7 @@ import { useToast } from "@/hooks/use-toast";
 import { useSearchParams } from "react-router-dom";
 import { motion } from "framer-motion";
 import { supabase } from "@/integrations/supabase/client";
+import emailjs from "@emailjs/browser";
 
 const PHONE_NUMBER = "1(515)-305-4012";
 const PHONE_LINK = "tel:+15153054012";
@@ -61,19 +62,52 @@ const Contact = () => {
     e.preventDefault();
     setIsSubmitting(true);
 
+    const fullAddress = [formData.address, formData.city, formData.state, formData.zipCode]
+      .filter(Boolean)
+      .join(", ");
+
     try {
-      const { error } = await supabase.functions.invoke("submit-contact", {
+      // Send email via EmailJS (client-side)
+      const emailPromise = emailjs.send(
+        import.meta.env.VITE_EMAILJS_SERVICE_ID,
+        import.meta.env.VITE_EMAILJS_TEMPLATE_ID,
+        {
+          from_name: formData.name,
+          from_email: formData.email,
+          phone: formData.phone,
+          service_interest: formData.serviceInterest || "Not specified",
+          address: fullAddress || "Not provided",
+          message: formData.message || "No additional message",
+        },
+        import.meta.env.VITE_EMAILJS_PUBLIC_KEY
+      );
+
+      // Save to database via edge function (parallel)
+      const dbPromise = supabase.functions.invoke("submit-contact", {
         body: formData,
       });
 
-      if (error) throw error;
+      // Wait for both operations
+      const [emailResult, dbResult] = await Promise.allSettled([emailPromise, dbPromise]);
 
-      toast({
-        title: "Message Sent! ✨",
-        description: "Thank you for contacting us. We'll get back to you soon.",
-      });
+      // Check results
+      const emailSuccess = emailResult.status === "fulfilled";
+      const dbSuccess = dbResult.status === "fulfilled" && !dbResult.value.error;
 
-      setFormData({ name: "", email: "", phone: "", serviceInterest: "", address: "", city: "", state: "", zipCode: "", message: "" });
+      if (emailSuccess || dbSuccess) {
+        toast({
+          title: "Message Sent! ✨",
+          description: "Thank you for contacting us. We'll get back to you soon.",
+        });
+        setFormData({ name: "", email: "", phone: "", serviceInterest: "", address: "", city: "", state: "", zipCode: "", message: "" });
+      } else {
+        throw new Error("Both email and database operations failed");
+      }
+
+      // Log any partial failures for debugging
+      if (!emailSuccess) console.warn("Email failed:", emailResult);
+      if (!dbSuccess) console.warn("Database save failed:", dbResult);
+
     } catch (error) {
       console.error("Error submitting form:", error);
       toast({
