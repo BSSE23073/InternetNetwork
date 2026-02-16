@@ -5,8 +5,8 @@ import { Phone, HelpCircle } from "lucide-react";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 
-const PHONE_NUMBER = "1(515)-305-4012";
-const PHONE_LINK = "tel:+15153054012";
+const PHONE_NUMBER = "(888) 353-6923";
+const PHONE_LINK = "tel:+18883536923";
 
 const faqs = [
   {

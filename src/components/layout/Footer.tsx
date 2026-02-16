@@ -2,8 +2,8 @@ import { Link } from "react-router-dom";
 import { Phone, Mail, MapPin } from "lucide-react";
 import logo from "@/assets/logo-footer.png";
 
-const PHONE_NUMBER = "(515) 305-4012";
-const PHONE_LINK = "tel:+15153054012";
+const PHONE_NUMBER = "(888) 353-6923";
+const PHONE_LINK = "tel:+18883536923";
 const EMAIL = "support@internetnetwork.us";
 const ADDRESS = "3708 Merle Hay Rd, Des Moines, IA 50310";
 

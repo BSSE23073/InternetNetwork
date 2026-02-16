@@ -8,8 +8,8 @@ import fiberInternet from "@/assets/fiber-internet.jpg";
 import tvEntertainment from "@/assets/tv-entertainment.jpg";
 import bundlePackage from "@/assets/bundle-package.jpg";
 
-const PHONE_NUMBER = "1(515)-305-4012";
-const PHONE_LINK = "tel:+15153054012";
+const PHONE_NUMBER = "(888) 353-6923";
+const PHONE_LINK = "tel:+18883536923";
 
 const internetPlans = [
   {

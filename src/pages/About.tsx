@@ -5,8 +5,8 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 
-const PHONE_NUMBER = "1(515)-305-4012";
-const PHONE_LINK = "tel:+15153054012";
+const PHONE_NUMBER = "(888) 353-6923";
+const PHONE_LINK = "tel:+18883536923";
 const EMAIL = "Support@internetnetwork.us";
 const ADDRESS = "3708 Merle Hay Rd Des Moines, IA 50310";
 const WEBSITE = "Internetnetwork.us";

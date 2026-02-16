@@ -15,8 +15,8 @@ const navLinks = [
   { href: "/contact", label: "Contact" },
 ];
 
-const PHONE_NUMBER = "(515) 305-4012";
-const PHONE_LINK = "tel:+15153054012";
+const PHONE_NUMBER = "(888) 353-6923";
+const PHONE_LINK = "tel:+18883536923";
 
 export function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
