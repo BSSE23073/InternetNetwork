@@ -344,7 +344,7 @@ const Contact = () => {
                   {
                     icon: Phone,
                     title: "Phone",
-                    value: "(515) 305-4012",
+                    value: "(888) 353-6923",
                     href: PHONE_LINK,
                     sub: null,
                     gradient: "from-accent to-secondary",
