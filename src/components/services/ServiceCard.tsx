@@ -16,7 +16,7 @@ interface ServiceCardProps {
   index?: number;
 }
 
-const PHONE_LINK = "tel:+15153054012";
+const PHONE_LINK = "tel:+18883536923";
 
 export function ServiceCard({ name, price, description, features, popular, details, index = 0 }: ServiceCardProps) {
   const [isExpanded, setIsExpanded] = useState(false);

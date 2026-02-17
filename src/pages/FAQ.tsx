@@ -31,7 +31,7 @@ const faqs = [
   },
   {
     question: "What Services Are Available in My Area?",
-    answer: "We show the services available at your location based on the address you provide. Enter your ZIP code on our website or call us at (515) 305-4012 to check availability.",
+    answer: "We show the services available at your location based on the address you provide. Enter your ZIP code on our website or call us at (888) 353-6923 to check availability.",
   },
   {
     question: "Are There Any Installation Fees?",
@@ -59,7 +59,7 @@ const faqs = [
   },
   {
     question: "How Do I Contact Customer Support?",
-    answer: "You can reach Internet Network customer support by phone at (515) 305-4012 or via email for assistance. We typically respond to inquiries within 24 hours.",
+    answer: "You can reach Internet Network customer support by phone at (888) 353-6923 or via email for assistance. We typically respond to inquiries within 24 hours.",
   },
   {
     question: "What Is Your Refund Policy?",

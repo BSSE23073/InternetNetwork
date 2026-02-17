@@ -62,7 +62,7 @@ const privacyContent = [
   {
     id: "contact",
     title: "12. Contact Us",
-    content: `If you have questions or concerns about this Privacy Policy or our data practices, please contact us:\n\nInternet Network\n\nWebsite: https://www.internetnetwork.us\n\nEmail: Support@internetnetwork.us\n\nPhone: (515) 305-4012\n\nAddress: 3708 Merle Hay Rd Des Moines, IA 50310`
+    content: `If you have questions or concerns about this Privacy Policy or our data practices, please contact us:\n\nInternet Network\n\nWebsite: https://www.internetnetwork.us\n\nEmail: Support@internetnetwork.us\n\nPhone: (888) 353-6923\n\nAddress: 3708 Merle Hay Rd Des Moines, IA 50310`
   },
 ];
 

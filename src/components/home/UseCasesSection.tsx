@@ -117,7 +117,7 @@ export function UseCasesSection() {
                   {/* Action Buttons */}
                   <div className="flex flex-col gap-2 mt-auto">
                     <Button asChild className="w-full gap-2 bg-primary hover:bg-primary/90 text-white">
-                      <a href="tel:+15153054012">
+                      <a href="tel:+18883536923">
                         <Phone className="h-4 w-4" />
                         Call Now
                       </a>

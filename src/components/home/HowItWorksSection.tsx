@@ -5,7 +5,7 @@ const steps = [
     icon: Phone,
     step: "1",
     title: "Call Us",
-    description: "Reach out to our friendly team at (515) 305-4012 to discuss your internet and TV needs.",
+    description: "Reach out to our friendly team at (888) 353-6923 to discuss your internet and TV needs.",
   },
   {
     icon: MessageSquare,
