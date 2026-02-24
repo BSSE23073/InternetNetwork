@@ -8,9 +8,9 @@ const pricingTiers = [
   { name: "Standard Assistance", price: "$80", description: "Plan comparison and recommendation support." },
   { name: "Order Processing Support", price: "$110", description: "Order submission assistance and documentation guidance." },
   { name: "Enhanced Coordination", price: "$150", description: "Full order coordination and customer support." },
-  { name: "Advanced Coordination", price: "$180", description: "" },
-  { name: "Complete Full-Service Coordination", price: "$200", description: "" },
-  { name: "Premium Priority Coordination", price: "$250", description: "" },
+  { name: "Advanced Coordination", price: "$180", description: "Dedicated order oversight with priority handling and multi-step process coordination." },
+  { name: "Complete Full-Service Coordination", price: "$200", description: "End-to-end service management including documentation review and follow-up coordination." },
+  { name: "Premium Priority Coordination", price: "$250", description: "Highest-level priority handling with expedited coordination and full service oversight." },
 ];
 
 const Pricing = () => {
