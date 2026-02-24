@@ -9,6 +9,7 @@ import logo from "@/assets/logo-header.png";
 const navLinks = [
   { href: "/", label: "Home" },
   { href: "/services", label: "Services" },
+  { href: "/pricing", label: "Pricing" },
   { href: "/how-it-works", label: "How It Works" },
   { href: "/about", label: "About" },
   { href: "/faq", label: "FAQ" },
