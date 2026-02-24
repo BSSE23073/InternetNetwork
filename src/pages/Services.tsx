@@ -120,7 +120,7 @@ const pricingInfo = [
 const serviceSetupFees = [
   "Internet Network applies a service and setup fee for processing and coordinating orders.",
   "Setup fees will be disclosed before completing your order.",
-  "Service and setup fees from Internet Network are non-refundable.",
+  "Service and setup fees from Internet Network are non-refundable when our service has been fully delivered.",
 ];
 
 const notIncluded = [
